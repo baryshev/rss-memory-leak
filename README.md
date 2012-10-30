@@ -1,15 +1,15 @@
-= RSS memory leak test case
+# RSS memory leak test case
 
 RSS memory doesn't release after doing some intensive tasks (highload).
 
-== My environment
+## My environment
 
 - CPU: Core i5 450M 2.4Ghz
 - OS: Ubuntu Server 12.04 (64 bit)
 - RAM: 4096Mb
 - Node.JS verison: 0.8.14
 
-== How to reproduce leak
+## How to reproduce leak
 
 1. Start `node server.js`
 2. Start `node client.js`
@@ -17,11 +17,11 @@ RSS memory doesn't release after doing some intensive tasks (highload).
 4. Stop `client.js` and wait some time to give `server.js` time to complete all tasks.
 5. If heap memory hasn't released you may start `client.js` for a short time again, to get GC of `server.js` work.
 
-== Expected result
+## Expected result
 
 RSS memory will be released as well as a heap memory and will be comparable with initial values.
 
-== Actual result
+## Actual result
 
 Heap memory released successfully, but RSS memory not.
 
@@ -35,8 +35,8 @@ After test:
 
 	{ rss: 184217600, heapTotal: 6114560, heapUsed: 2660472 }
 
-== Related discussions
+## Related discussions
 
-https://github.com/einaros/ws/issues/43
-http://grokbase.com/t/gg/nodejs/12ab62nmvb/is-growing-rss-something-to-worry-about
-https://groups.google.com/d/topic/nodejs/7EixhOfY2Ds/discussion
+- https://github.com/einaros/ws/issues/43
+- http://grokbase.com/t/gg/nodejs/12ab62nmvb/is-growing-rss-something-to-worry-about
+- https://groups.google.com/d/topic/nodejs/7EixhOfY2Ds/discussion
