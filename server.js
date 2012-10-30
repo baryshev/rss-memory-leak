@@ -3,6 +3,7 @@ var net = require('net');
 var server = net.createServer(function (socket) {
 	socket.on('data', function() {
 		setTimeout(function() {
+			// Stimulating intensive work
 			// Play with iterations here
 			// 1000 or less works for me as expected (without leak)
 			for (var i = 0; i < 100000; i++) {
